@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: "org.http4k", name: "http4k-core", version: "3.247.0"
+    compile group: "org.http4k", name: "http4k-server-jetty", version: "3.247.0"
+    compile group: "org.http4k", name: "http4k-client-apache", version: "3.247.0"
+    compile group: "org.http4k", name: "http4k-aws", version: "3.247.0"
+    compile group: "org.http4k", name: "http4k-format-jackson", version: "3.247.0"
+
+
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
