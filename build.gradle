@@ -16,6 +16,8 @@ dependencies {
     compile group: "org.http4k", name: "http4k-client-apache", version: "3.247.0"
     compile group: "org.http4k", name: "http4k-aws", version: "3.247.0"
     compile group: "org.http4k", name: "http4k-format-jackson", version: "3.247.0"
+    compile group: "org.http4k", name: "http4k-multipart", version: "3.248.0"
+
 
 
 }
