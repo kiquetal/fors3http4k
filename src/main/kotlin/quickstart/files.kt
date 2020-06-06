@@ -1,12 +1,10 @@
-package cookbook.multipart_forms
+package quickstart
 
 import org.http4k.core.*
 import org.http4k.core.Status.Companion.OK
 import org.http4k.filter.CorsPolicy
 import org.http4k.filter.ServerFilters
-import org.http4k.lens.MultipartFormFile
 import org.http4k.server.Jetty
-import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import java.io.File
 
@@ -15,6 +13,8 @@ fun main()
 {
 
     val handler={ request: Request ->
+        println(request.method)
+        println("receiving" + request.body)
         val receivedForm = MultipartFormBody.from(request)
         println(receivedForm.fieldValues("field"))
         println("que recibir"  + receivedForm.field("fieldName"))
@@ -25,7 +25,8 @@ fun main()
             val success = File("./guardia/fotos").mkdirs()
 
              File("./guardia/fotos/${d.filename}").createNewFile()
-            File("./guardia/fotos/${d.filename}").also {
+
+            File("./guardia/fotos/${d.filename}").let {
                it.outputStream().use {
                    d.content.copyTo(it)
                }

@@ -1,6 +1,10 @@
 plugins {
+
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id 'application'
+
 }
 
 group 'org.example'
@@ -8,6 +12,16 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClassName="quickstart.ServerKt"
+}
+
+shadowJar {
+    baseName='something'
+    zip64 = true
+    mergeServiceFiles()
 }
 
 dependencies {
