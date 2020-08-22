@@ -19,7 +19,7 @@ application {
 }
 
 shadowJar {
-    baseName='something'
+    baseName='something-lol'
     zip64 = true
     mergeServiceFiles()
 }
